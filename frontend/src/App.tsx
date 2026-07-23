@@ -427,9 +427,9 @@ function ScrollToTop() {
 export default function App() {
   const navigate = useNavigate();
 
-  const handleBackToHome = () => {
-    navigate('/');
-  };
+  // const handleBackToHome = () => {
+  //   navigate('/');
+  // };
 
   const handleViewChange = (viewId: string) => {
     navigate(`/${viewId}`);
@@ -463,32 +463,32 @@ export default function App() {
 
         {/* 1. Manifestation Training View */}
         <Route path="/manifestation-training" element={
-          <ManifestationTrainingView onBack={handleBackToHome} />
+          <ManifestationTrainingView />
         } />
 
         {/* 2. Relationship Counselling View */}
         <Route path="/relationship-counselling" element={
-          <RelationshipCounsellingView onBack={handleBackToHome} />
+          <RelationshipCounsellingView />
         } />
 
         {/* 3. Student Counselling View */}
         <Route path="/student-counselling" element={
-          <StudentCounsellingView onBack={handleBackToHome} />
+          <StudentCounsellingView />
         } />
 
         {/* 4. Personal Counselling View */}
         <Route path="/personal-counselling" element={
-          <PersonalCounsellingView onBack={handleBackToHome} />
+          <PersonalCounsellingView />
         } />
 
         {/* 5. Parenting Counselling View */}
         <Route path="/parenting-counselling" element={
-          <ParentingCounsellingView onBack={handleBackToHome} />
+          <ParentingCounsellingView />
         } />
 
         {/* 6. Stress & Anxiety Counselling View */}
         <Route path="/stress-anxiety-counselling" element={
-          <StressAnxietyCounsellingView onBack={handleBackToHome} />
+          <StressAnxietyCounsellingView />
         } />
       </Routes>
 
