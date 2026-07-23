@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import { Star, Sparkles, Award, Rocket, Target, Eye, ShieldAlert, Heart, TrendingUp, Compass, Clock, Monitor, Calendar, Shield, MessageCircle, Flame, User, Phone, Mail, MapPin, Check, X } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-export default function ManifestationTrainingView({ onBack }: { onBack: () => void }) {
+export default function ManifestationTrainingView() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);

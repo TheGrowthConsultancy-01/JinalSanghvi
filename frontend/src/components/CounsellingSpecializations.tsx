@@ -214,7 +214,7 @@
 //   );
 // }
 
-import React from 'react';
+
 import { Brain, Heart, GraduationCap, User, Users, Flame, Info, Calendar } from 'lucide-react';
 
 interface CounsellingProps {

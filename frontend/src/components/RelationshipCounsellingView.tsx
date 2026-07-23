@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { 
-  Star, Sparkles, Award, Rocket, Target, Heart, TrendingUp, Compass, 
+  Star, Sparkles, Award, Rocket, Target, Heart, Compass, 
   Clock, Monitor, Calendar, Shield, MessageCircle, Flame, User, Phone, 
   Mail, MapPin, Check, X, ShieldAlert, MessageSquare, VolumeX, Users, 
-  AlertTriangle, Lock, HelpCircle, EyeOff, FileText, CheckCircle2 
+  AlertTriangle, Lock, HelpCircle,
 } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-interface RelationshipCounsellingViewProps {
-  onBack: () => void;
-}
+// interface RelationshipCounsellingViewProps {
+//   onBack: () => void;
+// }
 
-export default function RelationshipCounsellingView({ onBack }: RelationshipCounsellingViewProps) {
+export default function RelationshipCounsellingView() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);

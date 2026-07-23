@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import { 
-  Star, Sparkles, Award, Rocket, Target, Heart, TrendingUp, Compass, 
-  Clock, Monitor, Calendar, Shield, MessageCircle, Flame, User, Phone, 
-  Mail, MapPin, Check, X, ShieldAlert, MessageSquare, VolumeX, Users, 
-  AlertTriangle, Lock, HelpCircle, EyeOff, FileText, CheckCircle2, 
-  GraduationCap, BookOpen, Brain, Trophy, Zap, Smile, CheckSquare
+  Star, Award, Rocket, Target, Heart, Compass, 
+  Clock, Monitor, Calendar, Shield, MessageCircle, Phone, 
+  Mail, MapPin, Check, X, ShieldAlert, MessageSquare, Users, 
+  AlertTriangle, FileText, 
+  GraduationCap, BookOpen, Brain, Trophy, Zap, Smile, 
 } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-interface StudentCounsellingViewProps {
-  onBack: () => void;
-}
+// interface StudentCounsellingViewProps {
+//   onBack: () => void;
+// }
 
-export default function StudentCounsellingView({ onBack }: StudentCounsellingViewProps) {
+export default function StudentCounsellingView() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);

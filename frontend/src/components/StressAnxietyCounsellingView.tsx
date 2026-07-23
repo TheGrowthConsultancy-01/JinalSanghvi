@@ -1,21 +1,20 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import { 
-  Star, Sparkles, Award, Rocket, Target, Heart, TrendingUp, Compass, 
-  Clock, Monitor, Calendar, Shield, MessageCircle, Flame, User, Phone, 
-  Mail, MapPin, Check, X, ShieldAlert, MessageSquare, VolumeX, Users, 
-  AlertTriangle, Lock, HelpCircle, EyeOff, FileText, CheckCircle2, 
-  Brain, Zap, Smile, BookOpen, Trophy, Sliders, CheckSquare, Ear, 
-  Activity, Smartphone, Volume2, Frown, Users2, ShieldCheck, Home, Sprout,
-  Wind, Moon, AlertCircle, Search, Lightbulb, Feather , Flower2
+   Award, Rocket,  Heart, TrendingUp, 
+  Clock, Monitor, Calendar, Shield, MessageCircle, User, Phone, 
+  Mail, MapPin, Check, X, CheckCircle2, 
+  Brain,  Sliders, 
+  Activity, Frown, Sprout,
+  Wind, Moon,  Search, Feather , Flower2
 } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-interface StressAnxietyCounsellingViewProps {
-  onBack: () => void;
-}
+// interface StressAnxietyCounsellingViewProps {
+//   onBack: () => void;
+// }
 
-export default function StressAnxietyCounsellingView({ onBack }: StressAnxietyCounsellingViewProps) {
+export default function StressAnxietyCounsellingView() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);

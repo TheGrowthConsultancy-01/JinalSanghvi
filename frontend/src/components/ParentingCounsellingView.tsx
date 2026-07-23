@@ -1,20 +1,19 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import { 
-  Star, Sparkles, Award, Rocket, Target, Heart, TrendingUp, Compass, 
-  Clock, Monitor, Calendar, Shield, MessageCircle, Flame, User, Phone, 
+  Star,  Award, Rocket,  Heart, 
+  Clock, Monitor, Calendar, Shield, MessageCircle, User, Phone, 
   Mail, MapPin, Check, X, ShieldAlert, MessageSquare, VolumeX, Users, 
-  AlertTriangle, Lock, HelpCircle, EyeOff, FileText, CheckCircle2, 
-  Brain, Zap, Smile, BookOpen, Trophy, Sliders, CheckSquare, Ear, 
-  Activity, Smartphone, Volume2, Frown, Users2, ShieldCheck, Home, Sprout,Lightbulb
+  BookOpen,  Sliders,  
+  Activity, Smartphone, Frown, Users2, ShieldCheck, Home, Sprout,Lightbulb
 } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-interface ParentingCounsellingViewProps {
-  onBack: () => void;
-}
+// interface ParentingCounsellingViewProps {
+//   onBack: () => void;
+// }
 
-export default function ParentingCounsellingView({ onBack }: ParentingCounsellingViewProps) {
+export default function ParentingCounsellingView() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);

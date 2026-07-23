@@ -1,22 +1,21 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import { 
-  Star, Sparkles, Award, Rocket, Target, Heart, TrendingUp, Compass, 
-  Clock, Monitor, Calendar, Shield, MessageCircle, Flame, User, Phone, 
-  Mail, MapPin, Check, X, ShieldAlert, MessageSquare, VolumeX, Users, 
-  AlertTriangle, Lock, HelpCircle, EyeOff, FileText, CheckCircle2, 
-  Brain, Zap, Smile, BookOpen, Trophy, Compass as CompassIcon, Lightbulb, 
-  SmilePlus, Feather, Sliders, CheckSquare, Ear, SmileIcon, Activity, CloudRain, Pause, RefreshCw, TrendingDown, Sprout, Eye,
+  Star,  Award, Rocket, Target, Heart, TrendingUp, Compass, 
+  Clock, Monitor, Calendar, Shield, MessageCircle,  User, Phone, 
+  Mail, MapPin, Check, X, HelpCircle, FileText,
+  Brain, Zap, Smile,  Trophy, Compass as  Lightbulb, 
+   Feather, Sliders,  Ear, CloudRain, Pause, RefreshCw, TrendingDown, Sprout, Eye,
   Battery,
   Flower2
 } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-interface PersonalCounsellingViewProps {
-  onBack: () => void;
-}
+// interface PersonalCounsellingViewProps {
+//   onBack: () => void;
+// }
 
-export default function PersonalCounsellingView({ onBack }: PersonalCounsellingViewProps) {
+export default function PersonalCounsellingView() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);

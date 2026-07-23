@@ -108,7 +108,7 @@
 //   );
 // }
 
-import React from 'react';
+
 import { Lightbulb, Zap, Heart, CheckCircle2, Crown, Sparkles, MessageSquare } from 'lucide-react';
 
 export default function ManifestationTraining() {

@@ -83,7 +83,7 @@
 //   );
 // }
 
-import React from 'react';
+
 import { Brain, Sparkles, Star, PenTool, Hash, MoveRight } from 'lucide-react';
 
 export default function SpecializedServices() {

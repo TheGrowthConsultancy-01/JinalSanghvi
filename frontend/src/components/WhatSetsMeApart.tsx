@@ -70,7 +70,7 @@
 //   );
 // }
 
-import React from 'react';
+
 import { Award, Fingerprint, Lock, ShieldCheck } from 'lucide-react';
 
 export default function WhatSetsMeApart() {
