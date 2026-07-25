@@ -613,7 +613,7 @@ export default function BookingAndContact() {
     setErrorMessage('');
 
     try {
-      const response = await fetch('http://localhost:5002/api/bookings', {
+      const response = await fetch('/api/bookings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
