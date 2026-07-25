@@ -1,4 +1,4 @@
-import  { useEffect } from 'react';
+import  { useState,useEffect } from 'react';
 import { 
   Star,  Award, Rocket,  Heart, 
   Clock, Monitor, Calendar, Shield, MessageCircle, User, Phone, 
@@ -7,16 +7,78 @@ import {
   Activity, Smartphone, Frown, Users2, ShieldCheck, Home, Sprout,Lightbulb
 } from 'lucide-react';
 import Navbar from './Navbar';
-import Footer from './Footer';
+
 
 // interface ParentingCounsellingViewProps {
 //   onBack: () => void;
 // }
 
+// export default function ParentingCounsellingView() {
+//   useEffect(() => {
+//     window.scrollTo({ top: 0, behavior: 'smooth' });
+//   }, []);
+
 export default function ParentingCounsellingView() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
+
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phone: '',
+    email: '',
+    service: '',
+    preferredDate: '',
+    preferredTime: '',
+    message: ''
+  });
+
+  const [loading, setLoading] = useState<boolean>(false);
+  const [submitted, setSubmitted] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('http://localhost:5002/api/bookings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong while submitting your booking.');
+      }
+
+      setSubmitted(true);
+      setFormData({
+        fullName: '',
+        phone: '',
+        email: '',
+        service: '',
+        preferredDate: '',
+        preferredTime: '',
+        message: ''
+      });
+    } catch (error: any) {
+      console.error("Submission error:", error);
+      setErrorMessage(error.message || 'An unexpected error occurred.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="bg-white min-h-screen font-sans antialiased text-[#110A24]">
@@ -402,30 +464,53 @@ export default function ParentingCounsellingView() {
 
       {/* BOOKING FORM SECTION */}
       <section id="booking" className="py-24 px-6 md:px-16 bg-[#f2ebfd]">
-        <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto">
+        
+        <div className="text-center mb-16 space-y-3">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#110A24] tracking-tight">
+            Book a Parenting Consultation Today
+          </h2>
+          <p className="text-gray-500 text-sm font-sans tracking-wide">
+            Take the first step toward building stronger, more meaningful family bonds
+          </p>
+          <div className="w-14 h-[3px] bg-gradient-to-r from-secondary-cyan via-primary to-pink-400 mx-auto rounded-full mt-4" />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          <div className="text-center mb-16 space-y-3">
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#110A24] tracking-tight">
-              Book a Parenting Consultation Today
-            </h2>
-            <p className="text-gray-500 text-sm font-sans tracking-wide">
-              Take the first step toward building stronger, more meaningful family bonds
-            </p>
-            <div className="w-14 h-[3px] bg-gradient-to-r from-secondary-cyan via-primary to-pink-400 mx-auto rounded-full mt-4" />
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            {/* Quick Booking Form */}
-            <div className="lg:col-span-7 bg-white border-2 border-purple-200/80 rounded-3xl p-8 md:p-10 shadow-xl shadow-purple-950/5">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-10 h-10 bg-[#ead5ff]/60 text-primary rounded-xl flex items-center justify-center font-bold">
-                  <Calendar size={20} />
-                </div>
-                <h3 className="text-2xl font-serif font-bold text-[#110A24]">Quick Booking Form</h3>
+          {/* Quick Booking Form */}
+          <div className="lg:col-span-7 bg-white border-2 border-purple-200/80 rounded-3xl p-8 md:p-10 shadow-xl shadow-purple-950/5">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-10 h-10 bg-[#ead5ff]/60 text-primary rounded-xl flex items-center justify-center font-bold">
+                <Calendar size={20} />
               </div>
+              <h3 className="text-2xl font-serif font-bold text-[#110A24]">Quick Booking Form</h3>
+            </div>
 
-              <form onSubmit={(e) => e.preventDefault()} className="space-y-6">
+            {submitted ? (
+              <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-8 text-center space-y-4">
+                <div className="w-12 h-12 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto">
+                  <Check size={24} />
+                </div>
+                <h4 className="text-xl font-serif font-bold text-emerald-900">Booking Successful!</h4>
+                <p className="text-gray-600 text-sm">
+                  Thank you for booking. Your session details have been saved, and an email notification has been dispatched successfully.
+                </p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="mt-4 px-6 py-2.5 bg-emerald-600 text-white text-xs font-bold uppercase rounded-xl hover:bg-emerald-700 transition-colors cursor-pointer"
+                >
+                  Book Another Consultation
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {errorMessage && (
+                  <div className="bg-rose-50 border border-rose-200 text-rose-600 text-xs p-4 rounded-xl">
+                    {errorMessage}
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-[11px] font-bold uppercase tracking-wider text-[#110A24] mb-2">
@@ -433,6 +518,9 @@ export default function ParentingCounsellingView() {
                     </label>
                     <input 
                       type="text" 
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleInputChange}
                       placeholder="Your full name" 
                       className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 focus:outline-none focus:border-primary transition-colors"
                       required 
@@ -444,6 +532,9 @@ export default function ParentingCounsellingView() {
                     </label>
                     <input 
                       type="tel" 
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
                       placeholder="+91 98765 43210" 
                       className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 focus:outline-none focus:border-primary transition-colors"
                       required 
@@ -457,6 +548,9 @@ export default function ParentingCounsellingView() {
                   </label>
                   <input 
                     type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     placeholder="your.email@example.com" 
                     className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 focus:outline-none focus:border-primary transition-colors"
                   />
@@ -468,6 +562,9 @@ export default function ParentingCounsellingView() {
                   </label>
                   <div className="relative">
                     <select 
+                      name="service"
+                      value={formData.service}
+                      onChange={handleInputChange}
                       className="w-full bg-white border-2 border-purple-200/80 rounded-xl px-4 py-3 text-sm text-gray-700 focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer"
                       required
                     >
@@ -490,6 +587,9 @@ export default function ParentingCounsellingView() {
                     </label>
                     <input 
                       type="date" 
+                      name="preferredDate"
+                      value={formData.preferredDate}
+                      onChange={handleInputChange}
                       placeholder="dd/mm/yyyy"
                       className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 focus:outline-none focus:border-primary transition-colors"
                     />
@@ -499,7 +599,12 @@ export default function ParentingCounsellingView() {
                       Preferred Time
                     </label>
                     <div className="relative">
-                      <select className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer">
+                      <select 
+                        name="preferredTime"
+                        value={formData.preferredTime}
+                        onChange={handleInputChange}
+                        className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 focus:outline-none focus:border-primary transition-colors appearance-none cursor-pointer"
+                      >
                         <option value="">Select time</option>
                         <option value="morning">Morning (10 AM - 1 PM)</option>
                         <option value="afternoon">Afternoon (1 PM - 4 PM)</option>
@@ -517,7 +622,10 @@ export default function ParentingCounsellingView() {
                     Tell Us Your Parenting Concern (Optional)
                   </label>
                   <textarea 
+                    name="message"
                     rows={4}
+                    value={formData.message}
+                    onChange={handleInputChange}
                     placeholder="What challenges are you facing with your child? What is your child's age?"
                     className="w-full bg-white border border-gray-200 rounded-xl p-4 text-sm text-gray-700 focus:outline-none focus:border-primary transition-colors resize-none"
                   ></textarea>
@@ -525,102 +633,102 @@ export default function ParentingCounsellingView() {
 
                 <button 
                   type="submit"
-                  className="w-full bg-gradient-to-r from-primary to-[#7c2ae8] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider py-4 rounded-xl shadow-lg shadow-purple-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  disabled={loading}
+                  className="w-full bg-gradient-to-r from-primary to-[#7c2ae8] hover:opacity-95 text-white font-bold text-xs uppercase tracking-wider py-4 rounded-xl shadow-lg shadow-purple-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
-                  <Rocket size={16} /> Book Consultation Now
+                  <Rocket size={16} /> {loading ? 'Submitting...' : 'Book Consultation Now'}
                 </button>
               </form>
+            )}
+          </div>
+
+          {/* Connect With Jinal Sidebar */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            <h3 className="text-xl font-serif font-bold text-[#110A24] px-1">Connect With Jinal</h3>
+
+            <a 
+              href="https://wa.me/919924999666" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group bg-white border-2 border-purple-200/80 rounded-3xl p-6 flex items-center gap-5 shadow-lg shadow-purple-950/5 hover:border-primary transition-all duration-300 block"
+            >
+              <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center shrink-0">
+                <MessageCircle size={26} className="fill-current" />
+              </div>
+              <div>
+                <h4 className="font-bold text-base text-[#110A24] font-serif">WhatsApp</h4>
+                <p className="text-xs text-gray-500 mt-0.5">Instant responses available</p>
+                <p className="text-sm font-bold text-primary mt-1">+91 9924 999 666</p>
+              </div>
+            </a>
+
+            <a 
+              href="tel:+919924999666"
+              className="group bg-white border-2 border-purple-200/80 rounded-3xl p-6 flex items-center gap-5 shadow-lg shadow-purple-950/5 hover:border-primary transition-all duration-300 block"
+            >
+              <div className="w-14 h-14 bg-[#ead5ff]/60 text-primary rounded-2xl flex items-center justify-center shrink-0">
+                <Phone size={24} />
+              </div>
+              <div>
+                <h4 className="font-bold text-base text-[#110A24] font-serif">Phone Call</h4>
+                <p className="text-xs text-gray-500 mt-0.5">Direct booking line</p>
+                <p className="text-sm font-bold text-primary mt-1">+91 9924 999 666</p>
+              </div>
+            </a>
+
+            <a 
+              href="mailto:jinalsanghaviofficial@gmail.com"
+              className="group bg-white border-2 border-purple-200/80 rounded-3xl p-6 flex items-center gap-5 shadow-lg shadow-purple-950/5 hover:border-primary transition-all duration-300 block"
+            >
+              <div className="w-14 h-14 bg-[#ead5ff]/60 text-primary rounded-2xl flex items-center justify-center shrink-0">
+                <Mail size={24} />
+              </div>
+              <div>
+                <h4 className="font-bold text-base text-[#110A24] font-serif">Email Us</h4>
+                <p className="text-xs text-gray-500 mt-0.5">Send your inquiry</p>
+                <p className="text-xs font-bold text-primary mt-1 truncate max-w-[200px]">jinalsanghaviofficial@gmail.com</p>
+              </div>
+            </a>
+
+            <div className="bg-white border-2 border-purple-200/80 rounded-3xl p-6 flex items-center gap-5 shadow-lg shadow-purple-950/5">
+              <div className="w-14 h-14 bg-[#ead5ff]/60 text-primary rounded-2xl flex items-center justify-center shrink-0">
+                <MapPin size={24} />
+              </div>
+              <div>
+                <h4 className="font-bold text-base text-[#110A24] font-serif">Location</h4>
+                <p className="text-xs text-gray-500 mt-0.5">Pal-Adajan, Surat, Gujarat</p>
+              </div>
             </div>
 
-            {/* Connect With Jinal Sidebar */}
-            <div className="lg:col-span-5 space-y-6">
-              
-              <h3 className="text-xl font-serif font-bold text-[#110A24] px-1">Connect With Jinal</h3>
-
-              <a 
-                href="https://wa.me/919924999666" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="group bg-white border-2 border-purple-200/80 rounded-3xl p-6 flex items-center gap-5 shadow-lg shadow-purple-950/5 hover:border-primary transition-all duration-300 block"
-              >
-                <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center shrink-0">
-                  <MessageCircle size={26} className="fill-current" />
+            <div className="bg-gradient-to-br from-[#ebd6ff] to-[#f4ebfe] border-2 border-purple-300/80 rounded-3xl p-6 shadow-md space-y-3">
+              <div className="flex items-center gap-2 text-[#110A24]">
+                <Clock size={18} className="text-primary" />
+                <h4 className="font-bold text-sm font-serif">Availability Hours</h4>
+              </div>
+              <div className="space-y-2 text-xs text-gray-700">
+                <div className="flex items-center gap-2">
+                  <Check size={14} className="text-emerald-600 font-bold" />
+                  <span>Monday to Saturday: 10:00 AM - 6:00 PM</span>
                 </div>
-                <div>
-                  <h4 className="font-bold text-base text-[#110A24] font-serif">WhatsApp</h4>
-                  <p className="text-xs text-gray-500 mt-0.5">Instant responses available</p>
-                  <p className="text-sm font-bold text-primary mt-1">+91 9924 999 666</p>
-                </div>
-              </a>
-
-              <a 
-                href="tel:+919924999666"
-                className="group bg-white border-2 border-purple-200/80 rounded-3xl p-6 flex items-center gap-5 shadow-lg shadow-purple-950/5 hover:border-primary transition-all duration-300 block"
-              >
-                <div className="w-14 h-14 bg-[#ead5ff]/60 text-primary rounded-2xl flex items-center justify-center shrink-0">
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-base text-[#110A24] font-serif">Phone Call</h4>
-                  <p className="text-xs text-gray-500 mt-0.5">Direct booking line</p>
-                  <p className="text-sm font-bold text-primary mt-1">+91 9924 999 666</p>
-                </div>
-              </a>
-
-              <a 
-                href="mailto:jinalsanghaviofficial@gmail.com"
-                className="group bg-white border-2 border-purple-200/80 rounded-3xl p-6 flex items-center gap-5 shadow-lg shadow-purple-950/5 hover:border-primary transition-all duration-300 block"
-              >
-                <div className="w-14 h-14 bg-[#ead5ff]/60 text-primary rounded-2xl flex items-center justify-center shrink-0">
-                  <Mail size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-base text-[#110A24] font-serif">Email Us</h4>
-                  <p className="text-xs text-gray-500 mt-0.5">Send your inquiry</p>
-                  <p className="text-xs font-bold text-primary mt-1 truncate max-w-[200px]">jinalsanghaviofficial@gmail.com</p>
-                </div>
-              </a>
-
-              <div className="bg-white border-2 border-purple-200/80 rounded-3xl p-6 flex items-center gap-5 shadow-lg shadow-purple-950/5">
-                <div className="w-14 h-14 bg-[#ead5ff]/60 text-primary rounded-2xl flex items-center justify-center shrink-0">
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-base text-[#110A24] font-serif">Location</h4>
-                  <p className="text-xs text-gray-500 mt-0.5">Pal-Adajan, Surat, Gujarat</p>
+                <div className="flex items-center gap-2">
+                  <X size={14} className="text-red-500 font-bold" />
+                  <span>Sunday: Closed</span>
                 </div>
               </div>
-
-              <div className="bg-gradient-to-br from-[#ebd6ff] to-[#f4ebfe] border-2 border-purple-300/80 rounded-3xl p-6 shadow-md space-y-3">
-                <div className="flex items-center gap-2 text-[#110A24]">
-                  <Clock size={18} className="text-primary" />
-                  <h4 className="font-bold text-sm font-serif">Availability Hours</h4>
-                </div>
-                <div className="space-y-2 text-xs text-gray-700">
-                  <div className="flex items-center gap-2">
-                    <Check size={14} className="text-emerald-600 font-bold" />
-                    <span>Monday to Saturday: 10:00 AM - 6:00 PM</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <X size={14} className="text-red-500 font-bold" />
-                    <span>Sunday: Closed</span>
-                  </div>
-                </div>
-                <p className="text-[11px] text-gray-500 pt-2 border-t border-purple-200/60 leading-relaxed">
-                  First consultation is 60–75 minutes. Evening slots available for working parents on request.
-                </p>
-              </div>
-
+              <p className="text-[11px] text-gray-500 pt-2 border-t border-purple-200/60 leading-relaxed">
+                First consultation is 60–75 minutes. Evening slots available for working parents on request.
+              </p>
             </div>
 
           </div>
 
         </div>
-      </section>
 
-      {/* 13. Global Footer */}
-      <Footer />
+      </div>
+    </section>
 
+     
     </div>
   );
 }
