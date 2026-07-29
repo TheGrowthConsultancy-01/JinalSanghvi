@@ -252,105 +252,217 @@
 //   );
 // }
 
-import { Users, Award, Heart, CalendarCheck, HelpCircle } from 'lucide-react';
-import heroImage from '../assets/Jinal Hero Banner Image 2.png'; // Import the local image
+// import { Users, Award, Heart, CalendarCheck, HelpCircle } from 'lucide-react';
+// import heroImage from '../assets/Jinal Hero Banner Image 2.png'; // Import the local image
+
+// export default function Hero() {
+//   return (
+//     <section id="home" className="relative min-h-screen bg-[#0d0520] bg-gradient-to-br from-[#0d0520] via-[#1a0840] to-[#2a0d65] text-white overflow-hidden py-24 px-6 md:px-16 flex flex-col justify-center">
+//       {/* Background ambient lighting blur */}
+//       <div className="absolute right-[-10%] top-[10%] w-[600px] h-[600px] bg-primary/20 rounded-full blur-[140px] pointer-events-none" />
+//       <div className="absolute left-[-10%] bottom-[10%] w-[500px] h-[500px] bg-secondary-cyan/10 rounded-full blur-[120px] pointer-events-none" />
+
+//       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full z-10">
+        
+//         {/* Left Content Column */}
+//         <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+          
+//           {/* Heading Content */}
+//           <h1 className="font-bold font-serif tracking-tight leading-[1.25]">
+//             <span className="text-[#882ed8] font-sans font-extrabold text-[32px] md:text-[38px] block tracking-wider mb-2">MANIFESTATION</span>
+//             <span className="text-[32px] md:text-[38px] block font-serif tracking-tight leading-tight">for people ready to attract</span>
+//             <span className="text-[32px] md:text-[38px] block font-serif tracking-tight leading-tight">success,</span>
+//             <span className="text-[#882ed8] font-sans font-extrabold text-[32px] md:text-[38px] tracking-wider block mt-2">ABUNDANCE</span>
+//             <span className="text-[32px] md:text-[38px] block font-serif tracking-tight leading-tight">and inner peace with</span>
+//             <span className="font-signature text-5xl md:text-6xl text-[#f1d3ff] mt-4 block font-normal tracking-wide [text-shadow:0_4px_20px_rgba(255,255,255,0.3),0_2px_10px_rgba(168,85,247,0.4)]">
+//               Jinal Sanghavi
+//             </span>
+//           </h1>
+          
+//           {/* Paragraph */}
+//           <p className="text-gray-300 text-base md:text-lg max-w-xl leading-relaxed font-sans">
+//             Step into the life you've always envisioned with expert manifestation guidance from Jinal Sanghavi. 
+//             Transform your mindset, align your energy, and attract abundance & inner peace.
+//           </p>
+
+//           {/* Mobile Only: Image right after paragraph on mobile */}
+//           <div className="block lg:hidden w-72 h-72 sm:w-80 sm:h-80 my-2 z-10">
+//             <img 
+//               src={heroImage} 
+//               alt="Jinal Sanghavi - Manifestation Expert" 
+//               className="w-full h-full object-contain object-center drop-shadow-2xl scale-105"
+//             />
+//           </div>
+
+//           {/* Mobile Only: Certified Badge right after image on mobile */}
+//           <div className="block lg:hidden inline-flex items-center gap-2 bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg z-10">
+//             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+//             Certified Manifestation Expert
+//           </div>
+
+//           {/* Booking / Information buttons */}
+//           <div className="flex flex-row justify-center lg:justify-start gap-3 pt-2 w-full sm:w-auto">
+//             <a 
+//               href="#booking" 
+//               className="bg-primary hover:bg-primary-dark text-white font-bold px-5 sm:px-8 py-3.5 rounded-full shadow-lg shadow-purple-600/30 transition-all flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm tracking-wider uppercase whitespace-nowrap"
+//             >
+//               <CalendarCheck size={16} /> Book Now
+//             </a>
+//             <a 
+//               href="#manifestation" 
+//               className="text-white hover:text-purple-200 font-bold px-5 sm:px-8 py-3.5 rounded-full border border-white/20 transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm tracking-wider uppercase bg-transparent whitespace-nowrap"
+//             >
+//               <HelpCircle size={16} /> Learn More
+//             </a>
+//           </div>
+
+//           {/* Hero Statistics Glass Card */}
+//           <div className="mt-8 p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col lg:grid lg:grid-cols-3 gap-4 max-w-lg w-full">
+//             <div className="flex items-center gap-3">
+//               <div className="p-2.5 bg-white/10 rounded-xl text-primary-light shrink-0"><Users size={20} /></div>
+//               <div className="text-left"><h4 className="text-lg font-bold">10,000+</h4><p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Happy Clients</p></div>
+//             </div>
+//             <div className="flex items-center gap-3">
+//               <div className="p-2.5 bg-white/10 rounded-xl text-primary-light shrink-0"><Award size={20} /></div>
+//               <div className="text-left"><h4 className="text-lg font-bold">17+</h4><p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Years Exp.</p></div>
+//             </div>
+//             <div className="flex items-center gap-3">
+//               <div className="p-2.5 bg-white/10 rounded-xl text-primary-light shrink-0"><Heart size={20} /></div>
+//               <div className="text-left"><h4 className="text-lg font-bold">98%</h4><p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Satisfaction</p></div>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Right Portrait Column (Desktop Only: Image + Certified Badge underneath with proper space) */}
+//         <div className="hidden lg:col-span-5 lg:flex flex-col items-center justify-center relative">
+//           <div className="w-[500px] h-[500px] flex items-center justify-center z-10">
+//             <img 
+//               src={heroImage} 
+//               alt="Jinal Sanghavi - Manifestation Expert" 
+//               className="w-full h-full object-contain object-center drop-shadow-2xl scale-110"
+//             />
+//           </div>
+
+//           {/* Certified Badge placed with a distinct margin-top for proper spacing */}
+//           <div className="mt-8 inline-flex items-center gap-2 bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg z-10">
+//             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+//             Certified Manifestation Expert
+//           </div>
+//         </div>
+
+//       </div>
+//     </section>
+//   );
+// }
+
+import { Users, Award, Heart, CalendarCheck, Sparkles } from 'lucide-react';
+import heroImage from '../assets/Jinal Hero Banner Image 2.png';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen bg-[#0d0520] bg-gradient-to-br from-[#0d0520] via-[#1a0840] to-[#2a0d65] text-white overflow-hidden py-24 px-6 md:px-16 flex flex-col justify-center">
-      {/* Background ambient lighting blur */}
-      <div className="absolute right-[-10%] top-[10%] w-[600px] h-[600px] bg-primary/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute left-[-10%] bottom-[10%] w-[500px] h-[500px] bg-secondary-cyan/10 rounded-full blur-[120px] pointer-events-none" />
+    <>
+      {/* Direct inline style for smooth scrolling */}
+      <style>{`
+        html {
+          scroll-behavior: smooth;
+        }
+      `}</style>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full z-10">
-        
-        {/* Left Content Column */}
-        <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+      <section id="home" className="relative min-h-screen bg-[#0d0520] bg-gradient-to-br from-[#0d0520] via-[#1a0840] to-[#2a0d65] text-white overflow-hidden py-24 px-6 md:px-16 flex flex-col justify-center">
+        {/* Background ambient lighting blur */}
+        <div className="absolute right-[-10%] top-[10%] w-[600px] h-[600px] bg-primary/20 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute left-[-10%] bottom-[10%] w-[500px] h-[500px] bg-secondary-cyan/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full z-10">
           
-          {/* Heading Content */}
-          <h1 className="font-bold font-serif tracking-tight leading-[1.25]">
-            <span className="text-[#882ed8] font-sans font-extrabold text-[32px] md:text-[38px] block tracking-wider mb-2">MANIFESTATION</span>
-            <span className="text-[32px] md:text-[38px] block font-serif tracking-tight leading-tight">for people ready to attract</span>
-            <span className="text-[32px] md:text-[38px] block font-serif tracking-tight leading-tight">success,</span>
-            <span className="text-[#882ed8] font-sans font-extrabold text-[32px] md:text-[38px] tracking-wider block mt-2">ABUNDANCE</span>
-            <span className="text-[32px] md:text-[38px] block font-serif tracking-tight leading-tight">and inner peace with</span>
-            <span className="font-signature text-5xl md:text-6xl text-[#f1d3ff] mt-4 block font-normal tracking-wide [text-shadow:0_4px_20px_rgba(255,255,255,0.3),0_2px_10px_rgba(168,85,247,0.4)]">
-              Jinal Sanghavi
-            </span>
-          </h1>
-          
-          {/* Paragraph */}
-          <p className="text-gray-300 text-base md:text-lg max-w-xl leading-relaxed font-sans">
-            Step into the life you've always envisioned with expert manifestation guidance from Jinal Sanghavi. 
-            Transform your mindset, align your energy, and attract abundance & inner peace.
-          </p>
+          {/* Left Content Column */}
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+            
+            {/* Heading Content */}
+            <h1 className="font-bold font-serif tracking-tight leading-[1.25]">
+              <span className="text-[#882ed8] font-sans font-extrabold text-[32px] md:text-[38px] block tracking-wider mb-2">MANIFESTATION</span>
+              <span className="text-[32px] md:text-[38px] block font-serif tracking-tight leading-tight">for people ready to attract</span>
+              <span className="text-[32px] md:text-[38px] block font-serif tracking-tight leading-tight">success,</span>
+              <span className="text-[#882ed8] font-sans font-extrabold text-[32px] md:text-[38px] tracking-wider block mt-2">ABUNDANCE</span>
+              <span className="text-[32px] md:text-[38px] block font-serif tracking-tight leading-tight">and inner peace with</span>
+              <span className="font-signature text-5xl md:text-6xl text-[#f1d3ff] mt-4 block font-normal tracking-wide [text-shadow:0_4px_20px_rgba(255,255,255,0.3),0_2px_10px_rgba(168,85,247,0.4)]">
+                Jinal Sanghavi
+              </span>
+            </h1>
+            
+            {/* Paragraph */}
+            <p className="text-gray-300 text-base md:text-lg max-w-xl leading-relaxed font-sans">
+              Step into the life you've always envisioned with expert manifestation guidance from Jinal Sanghavi. 
+              Transform your mindset, align your energy, and attract abundance & inner peace.
+            </p>
 
-          {/* Mobile Only: Image right after paragraph on mobile */}
-          <div className="block lg:hidden w-72 h-72 sm:w-80 sm:h-80 my-2 z-10">
-            <img 
-              src={heroImage} 
-              alt="Jinal Sanghavi - Manifestation Expert" 
-              className="w-full h-full object-contain object-center drop-shadow-2xl scale-105"
-            />
-          </div>
-
-          {/* Mobile Only: Certified Badge right after image on mobile */}
-          <div className="block lg:hidden inline-flex items-center gap-2 bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg z-10">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Certified Manifestation Expert
-          </div>
-
-          {/* Booking / Information buttons */}
-          <div className="flex flex-row justify-center lg:justify-start gap-3 pt-2 w-full sm:w-auto">
-            <a 
-              href="#booking" 
-              className="bg-primary hover:bg-primary-dark text-white font-bold px-5 sm:px-8 py-3.5 rounded-full shadow-lg shadow-purple-600/30 transition-all flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm tracking-wider uppercase whitespace-nowrap"
-            >
-              <CalendarCheck size={16} /> Book Now
-            </a>
-            <a 
-              href="#manifestation" 
-              className="text-white hover:text-purple-200 font-bold px-5 sm:px-8 py-3.5 rounded-full border border-white/20 transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm tracking-wider uppercase bg-transparent whitespace-nowrap"
-            >
-              <HelpCircle size={16} /> Learn More
-            </a>
-          </div>
-
-          {/* Hero Statistics Glass Card */}
-          <div className="mt-8 p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col lg:grid lg:grid-cols-3 gap-4 max-w-lg w-full">
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 bg-white/10 rounded-xl text-primary-light shrink-0"><Users size={20} /></div>
-              <div className="text-left"><h4 className="text-lg font-bold">10,000+</h4><p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Happy Clients</p></div>
+            {/* Mobile Only: Image right after paragraph on mobile */}
+            <div className="block lg:hidden w-72 h-72 sm:w-80 sm:h-80 my-2 z-10">
+              <img 
+                src={heroImage} 
+                alt="Jinal Sanghavi - Manifestation Expert" 
+                className="w-full h-full object-contain object-center drop-shadow-2xl scale-105"
+              />
             </div>
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 bg-white/10 rounded-xl text-primary-light shrink-0"><Award size={20} /></div>
-              <div className="text-left"><h4 className="text-lg font-bold">17+</h4><p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Years Exp.</p></div>
+
+            {/* Mobile Only: Certified Badge right after image on mobile */}
+            <div className="block lg:hidden inline-flex items-center gap-2 bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg z-10">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              Certified Manifestation Expert
             </div>
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 bg-white/10 rounded-xl text-primary-light shrink-0"><Heart size={20} /></div>
-              <div className="text-left"><h4 className="text-lg font-bold">98%</h4><p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Satisfaction</p></div>
+
+            {/* Booking / Information buttons */}
+            <div className="flex flex-row justify-center lg:justify-start gap-3 pt-2 w-full sm:w-auto">
+              <a 
+                href="#book-session" 
+                className="bg-primary hover:bg-primary-dark text-white font-bold px-5 sm:px-8 py-3.5 rounded-full shadow-lg shadow-purple-600/30 transition-all flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm tracking-wider uppercase whitespace-nowrap"
+              >
+                <CalendarCheck size={16} /> Book Now
+              </a>
+              <a 
+                href="#manifestation" 
+                className="text-white hover:text-purple-200 font-bold px-5 sm:px-8 py-3.5 rounded-full border border-white/20 transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm tracking-wider uppercase bg-transparent whitespace-nowrap"
+              >
+                <Sparkles size={16} /> Learn More
+              </a>
+            </div>
+
+            {/* Hero Statistics Glass Card */}
+            <div className="mt-8 p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md flex flex-col lg:grid lg:grid-cols-3 gap-4 max-w-lg w-full">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 bg-white/10 rounded-xl text-primary-light shrink-0"><Users size={20} /></div>
+                <div className="text-left"><h4 className="text-lg font-bold">10,000+</h4><p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Happy Clients</p></div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 bg-white/10 rounded-xl text-primary-light shrink-0"><Award size={20} /></div>
+                <div className="text-left"><h4 className="text-lg font-bold">17+</h4><p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Years Exp.</p></div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 bg-white/10 rounded-xl text-primary-light shrink-0"><Heart size={20} /></div>
+                <div className="text-left"><h4 className="text-lg font-bold">98%</h4><p className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Satisfaction</p></div>
+              </div>
             </div>
           </div>
+
+          {/* Right Portrait Column (Desktop Only: Image + Certified Badge underneath with proper space) */}
+          <div className="hidden lg:col-span-5 lg:flex flex-col items-center justify-center relative">
+            <div className="w-[500px] h-[500px] flex items-center justify-center z-10">
+              <img 
+                src={heroImage} 
+                alt="Jinal Sanghavi - Manifestation Expert" 
+                className="w-full h-full object-contain object-center drop-shadow-2xl scale-110"
+              />
+            </div>
+
+            {/* Certified Badge placed with a distinct margin-top for proper spacing */}
+            <div className="mt-8 inline-flex items-center gap-2 bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg z-10">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              Certified Manifestation Expert
+            </div>
+          </div>
+
         </div>
-
-        {/* Right Portrait Column (Desktop Only: Image + Certified Badge underneath with proper space) */}
-        <div className="hidden lg:col-span-5 lg:flex flex-col items-center justify-center relative">
-          <div className="w-[500px] h-[500px] flex items-center justify-center z-10">
-            <img 
-              src={heroImage} 
-              alt="Jinal Sanghavi - Manifestation Expert" 
-              className="w-full h-full object-contain object-center drop-shadow-2xl scale-110"
-            />
-          </div>
-
-          {/* Certified Badge placed with a distinct margin-top for proper spacing */}
-          <div className="mt-8 inline-flex items-center gap-2 bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg z-10">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Certified Manifestation Expert
-          </div>
-        </div>
-
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
