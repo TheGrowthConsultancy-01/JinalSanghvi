@@ -155,7 +155,7 @@ app.post('/api/bookings', async (req, res) => {
     });
 
     // 3. Send Notifications via Resend
-    const ADMIN_EMAIL = 'tgc.henil@gmail.com';
+    const ADMIN_EMAIL = 'jinalsanghaviofficial@gmail.com';
     // Yahan apna verified domain use karein (jaise info@jinalsanghavi.com ya support@jinalsanghavi.com)
     const FROM_EMAIL = 'Jinal Sanghvi <support@jinalsanghavi.com>'; 
 
