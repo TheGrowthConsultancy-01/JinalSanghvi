@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, BookOpen, ArrowRight, Clock, Calendar, CheckCircle2, HeartHandshake, Compass } from 'lucide-react';
 import { BLOG_ARTICLES, AUTHOR_INFO } from '../data/blogData';
+import heroImage from '../assets/Jinal Hero Banner Image 2.png';
 
 export default function BlogView() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -37,32 +38,60 @@ export default function BlogView() {
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-500/15 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto space-y-6 relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full border border-white/15 text-xs font-bold uppercase tracking-wider text-purple-200">
-            <Sparkles size={14} className="text-yellow-400 fill-yellow-400" />
-            Foundational Insights & Wisdom
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+          {/* Left Content Column */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full border border-white/15 text-xs font-bold uppercase tracking-wider text-purple-200">
+              <Sparkles size={14} className="text-yellow-400 fill-yellow-400" />
+              Foundational Insights & Wisdom
+            </div>
+
+            <h1 className="text-4xl md:text-6xl font-serif font-bold tracking-tight max-w-3xl leading-tight">
+              Manifestation & Human Potential <span className="text-purple-300 italic font-normal">Journal</span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-purple-100/90 max-w-2xl font-light leading-relaxed">
+              Essential perspectives on goal clarity, emotional awareness, nervous system alignment, and intentional action by Jinal Sanghavi.
+            </p>
+
+            {/* Mobile Only: Photo placed right after description */}
+            <div className="block lg:hidden w-72 h-72 sm:w-80 sm:h-80 mx-auto my-4 z-10">
+              <img 
+                src={heroImage} 
+                alt="Jinal Sanghavi - Manifestation & Human Potential Expert" 
+                className="w-full h-full object-contain object-center drop-shadow-2xl"
+              />
+            </div>
+
+            <div className="flex flex-wrap gap-4 pt-3 text-xs text-purple-200/90 font-medium">
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 size={16} className="text-emerald-400" />
+                <span>Grounded, Evidence-Informed Guidance</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 size={16} className="text-emerald-400" />
+                <span>Zero Empty Promises or Fluff</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 size={16} className="text-emerald-400" />
+                <span>Actionable Step-by-Step Frameworks</span>
+              </div>
+            </div>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-serif font-bold tracking-tight max-w-3xl leading-tight">
-            Manifestation & Human Potential <span className="text-purple-300 italic font-normal">Journal</span>
-          </h1>
-
-          <p className="text-lg md:text-xl text-purple-100/90 max-w-2xl font-light leading-relaxed">
-            Essential perspectives on goal clarity, emotional awareness, nervous system alignment, and intentional action by Jinal Sanghavi.
-          </p>
-
-          <div className="flex flex-wrap gap-4 pt-3 text-xs text-purple-200/90 font-medium">
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 size={16} className="text-emerald-400" />
-              <span>Grounded, Evidence-Informed Guidance</span>
+          {/* Right Portrait Column (Desktop Only) */}
+          <div className="hidden lg:col-span-5 lg:flex flex-col items-center justify-center relative">
+            <div className="w-full h-[460px] flex items-center justify-center z-10">
+              <img 
+                src={heroImage} 
+                alt="Jinal Sanghavi - Manifestation & Human Potential Expert" 
+                className="max-h-full max-w-full w-auto h-auto object-contain object-center drop-shadow-2xl scale-110"
+              />
             </div>
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 size={16} className="text-emerald-400" />
-              <span>Zero Empty Promises or Fluff</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 size={16} className="text-emerald-400" />
-              <span>Actionable Step-by-Step Frameworks</span>
+            {/* Author Badge placed underneath */}
+            <div className="mt-6 inline-flex items-center gap-2 bg-purple-950/80 border border-purple-400/30 text-purple-200 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg z-10">
+              <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+              Jinal Sanghavi • Author & Expert
             </div>
           </div>
         </div>
