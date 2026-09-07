@@ -109,14 +109,22 @@ export default function BlogView() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Image side */}
               <div className="lg:col-span-5 relative">
-                <div className="aspect-4/3 rounded-2xl overflow-hidden shadow-lg border border-purple-100/60">
+                <div className="h-96 md:h-[440px] w-full rounded-2xl overflow-hidden shadow-lg border border-purple-100/60 bg-gradient-to-br from-[#1d0b45] to-[#2e1065] relative flex items-center justify-center p-3">
+                  {/* Ambient backdrop */}
+                  <img
+                    src={featuredArticle.image}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110 pointer-events-none"
+                  />
+                  {/* Full uncropped photo */}
                   <img
                     src={featuredArticle.image}
                     alt={featuredArticle.title}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="relative z-10 max-h-full max-w-full h-auto w-auto object-contain rounded-xl drop-shadow-xl group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="absolute top-3 left-3 bg-[#9e47ec] text-white text-[11px] font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
+                <div className="absolute top-3 left-3 z-20 bg-[#9e47ec] text-white text-[11px] font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-md">
                   Featured • Article #{featuredArticle.order}
                 </div>
               </div>
@@ -225,16 +233,24 @@ export default function BlogView() {
                 >
                   <div>
                     {/* Card Thumbnail */}
-                    <div className="relative aspect-16/10 overflow-hidden bg-slate-100">
+                    <div className="relative h-72 sm:h-80 w-full overflow-hidden bg-gradient-to-br from-[#1d0b45] to-[#2e1065] flex items-center justify-center p-3">
+                      {/* Ambient backdrop */}
+                      <img
+                        src={article.image}
+                        alt=""
+                        aria-hidden="true"
+                        className="absolute inset-0 w-full h-full object-cover blur-xl opacity-35 scale-110 pointer-events-none"
+                      />
+                      {/* Full uncropped photo */}
                       <img
                         src={article.image}
                         alt={article.title}
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                        className="relative z-10 max-h-full max-w-full h-auto w-auto object-contain rounded-xl drop-shadow-lg group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-xs text-[#110A24] font-black text-xs px-3 py-1 rounded-full shadow-xs border border-purple-100">
+                      <div className="absolute top-3 left-3 z-20 bg-white/95 backdrop-blur-xs text-[#110A24] font-black text-xs px-3 py-1 rounded-full shadow-xs border border-purple-100">
                         #{article.order}
                       </div>
-                      <div className="absolute bottom-3 left-3 bg-[#1d0b45]/90 backdrop-blur-xs text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md">
+                      <div className="absolute bottom-3 left-3 z-20 bg-[#1d0b45]/90 backdrop-blur-xs text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-md">
                         {article.category}
                       </div>
                     </div>

@@ -133,12 +133,20 @@ export default function BlogPostView() {
       </header>
 
       {/* 2. COVER IMAGE BANNER */}
-      <div className="max-w-4xl mx-auto px-6 -mt-8 relative z-20">
-        <div className="aspect-16/9 md:aspect-21/9 rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100">
+      <div className="max-w-4xl mx-auto px-6 -mt-10 relative z-20">
+        <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-gradient-to-br from-[#1d0b45] to-[#2e1065] h-[440px] sm:h-[520px] md:h-[600px] flex items-center justify-center p-4">
+          {/* Ambient backdrop */}
+          <img
+            src={article.image}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-35 scale-110 pointer-events-none"
+          />
+          {/* Full uncropped photo */}
           <img
             src={article.image}
             alt={article.title}
-            className="w-full h-full object-cover object-center"
+            className="relative z-10 max-h-full max-w-full h-auto w-auto object-contain rounded-2xl drop-shadow-2xl"
           />
         </div>
       </div>
@@ -379,21 +387,36 @@ export default function BlogPostView() {
               <Link
                 key={rel.id}
                 to={`/blog/${rel.slug}`}
-                className="group bg-white rounded-2xl p-5 border border-gray-200 hover:border-purple-200 hover:shadow-lg transition-all flex flex-col justify-between"
+                className="group bg-white rounded-2xl p-4 border border-gray-200 hover:border-purple-200 hover:shadow-lg transition-all flex flex-col justify-between"
               >
-                <div className="space-y-2">
-                  <span className="text-[10px] font-bold text-[#9e47ec] uppercase tracking-wider block">
-                    Article #{rel.order} • {rel.category}
-                  </span>
-                  <h4 className="text-sm font-serif font-bold text-[#110A24] group-hover:text-[#9e47ec] transition-colors leading-snug line-clamp-2">
-                    {rel.title}
-                  </h4>
-                  <p className="text-xs text-gray-500 line-clamp-2">
-                    {rel.excerpt}
-                  </p>
+                <div>
+                  <div className="relative h-48 w-full overflow-hidden rounded-xl bg-gradient-to-br from-[#1d0b45] to-[#2e1065] flex items-center justify-center p-2 mb-3">
+                    <img
+                      src={rel.image}
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute inset-0 w-full h-full object-cover blur-lg opacity-30 scale-110 pointer-events-none"
+                    />
+                    <img
+                      src={rel.image}
+                      alt={rel.title}
+                      className="relative z-10 max-h-full max-w-full h-auto w-auto object-contain rounded-lg drop-shadow group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <span className="text-[10px] font-bold text-[#9e47ec] uppercase tracking-wider block">
+                      Article #{rel.order} • {rel.category}
+                    </span>
+                    <h4 className="text-sm font-serif font-bold text-[#110A24] group-hover:text-[#9e47ec] transition-colors leading-snug line-clamp-2">
+                      {rel.title}
+                    </h4>
+                    <p className="text-xs text-gray-500 line-clamp-2">
+                      {rel.excerpt}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="pt-4 mt-2 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-400">
+                <div className="pt-3 mt-2 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-400">
                   <span>{rel.readTime}</span>
                   <span className="text-[#9e47ec] font-bold flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
                     Read <ChevronRight size={12} />
