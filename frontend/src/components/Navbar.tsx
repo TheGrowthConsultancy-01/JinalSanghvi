@@ -219,7 +219,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -234,8 +234,9 @@ export default function Navbar() {
     { label: 'About', href: isHomePage ? '#about' : '/#about' },
     { label: 'Services', href: isHomePage ? '#counselling' : '/#counselling' },
     { label: 'Gallery', href: isHomePage ? '#gallery' : '/#gallery' },
-    { label: 'Reviews', href: isHomePage ? '#reviews' : '/#reviews' }, // Updated from #testimonials to #reviews
-    { label: 'Book Session', href: isHomePage ? '#book-session' : '/#book-session' } // Updated from #booking to #book-session
+    { label: 'Blog', href: '/blog' },
+    { label: 'Reviews', href: isHomePage ? '#reviews' : '/#reviews' },
+    { label: 'Book Session', href: isHomePage ? '#book-session' : '/#book-session' }
   ];
 
   useEffect(() => {
@@ -259,30 +260,52 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           
-          <a 
-            href="/" 
+          <Link 
+            to="/" 
             className="text-[22px] md:text-[24px] font-serif font-bold tracking-tight transition-colors duration-300"
             style={{ color: showScrolledStyle ? '#9e47ec' : '#8a2fdb' }}
           >
             Jinal Sanghavi
-          </a>
+          </Link>
 
           {/* Desktop Nav Items */}
           <div className="hidden md:flex space-x-8 items-center">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className={`text-[14px] font-semibold tracking-wide transition-colors duration-200 relative group py-1.5 ${
-                  showScrolledStyle 
+            {navItems.map((item) => {
+              const isBlogItem = item.label === 'Blog';
+              const isBlogActive = isBlogItem && location.pathname.startsWith('/blog');
+              
+              const linkClasses = `text-[14px] font-semibold tracking-wide transition-colors duration-200 relative group py-1.5 ${
+                isBlogActive
+                  ? 'text-[#9e47ec] font-bold'
+                  : showScrolledStyle 
                     ? 'text-gray-800 hover:text-primary' 
                     : 'text-white/90 hover:text-white'
-                }`}
-              >
-                {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </a>
-            ))}
+              }`;
+
+              if (item.href.startsWith('/') && !item.href.includes('#')) {
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className={linkClasses}
+                  >
+                    {item.label}
+                    <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${isBlogActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                  </Link>
+                );
+              }
+
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className={linkClasses}
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </a>
+              );
+            })}
           </div>
 
           {/* Mobile Menu Toggle Button */}
@@ -307,16 +330,36 @@ export default function Navbar() {
         }`}
       >
         <div className="flex flex-col space-y-6 text-center">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-white hover:text-primary text-xl font-serif font-bold transition-colors"
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isBlogItem = item.label === 'Blog';
+            const isBlogActive = isBlogItem && location.pathname.startsWith('/blog');
+
+            if (item.href.startsWith('/') && !item.href.includes('#')) {
+              return (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`text-xl font-serif font-bold transition-colors ${
+                    isBlogActive ? 'text-primary underline' : 'text-white hover:text-primary'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            }
+
+            return (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-white hover:text-primary text-xl font-serif font-bold transition-colors"
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </div>
       </div>
     </>

@@ -407,6 +407,8 @@ import StudentCounsellingView from './components/StudentCounsellingView';
 import PersonalCounsellingView from './components/PersonalCounsellingView';
 import ParentingCounsellingView from './components/ParentingCounsellingView';
 import StressAnxietyCounsellingView from './components/StressAnxietyCounsellingView';
+import BlogView from './components/BlogView';
+import BlogPostView from './components/BlogPostView';
 
 // Scroll to top helper on route change & hash handling
 function ScrollToTop() {
@@ -489,6 +491,19 @@ export default function App() {
         {/* 6. Stress & Anxiety Counselling View */}
         <Route path="/stress-anxiety-counselling" element={
           <StressAnxietyCounsellingView />
+        } />
+
+        {/* 7. Blog Directory View */}
+        <Route path="/blog" element={
+          <BlogView />
+        } />
+        <Route path="/blogs" element={
+          <BlogView />
+        } />
+
+        {/* 8. Individual Blog Article View */}
+        <Route path="/blog/:slug" element={
+          <BlogPostView />
         } />
       </Routes>
 

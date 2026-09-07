@@ -1,7 +1,16 @@
 import { Phone, MessageSquare, Mail, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
-  const quickLinks = ['Home', 'Manifestation', 'About', 'Services', 'Testimonials'];
+  const quickLinks = [
+    { label: 'Home', href: '/#home' },
+    { label: 'Manifestation', href: '/#manifestation' },
+    { label: 'About', href: '/#about' },
+    { label: 'Services', href: '/#counselling' },
+    { label: 'Gallery', href: '/#gallery' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Reviews', href: '/#reviews' }
+  ];
   const services = ['Manifestation Training', 'Reiki Healing', 'Tarot Reading', 'Counselling', 'Numerology'];
 
   // Safe Inline SVGs replacing the missing Lucide brand icons
@@ -85,12 +94,21 @@ export default function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link, idx) => (
                 <li key={idx}>
-                  <a 
-                    href={`#${link.toLowerCase().replace(' ', '-')}`} 
-                    className="text-gray-400 hover:text-white text-[13.5px] transition-colors"
-                  >
-                    {link}
-                  </a>
+                  {link.href.startsWith('/') && !link.href.includes('#') ? (
+                    <Link
+                      to={link.href}
+                      className="text-gray-400 hover:text-white text-[13.5px] transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a 
+                      href={link.href} 
+                      className="text-gray-400 hover:text-white text-[13.5px] transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
