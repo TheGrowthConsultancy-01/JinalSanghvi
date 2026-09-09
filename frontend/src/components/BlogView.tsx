@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, BookOpen, ArrowRight, Clock, Calendar, CheckCircle2, HeartHandshake, Compass } from 'lucide-react';
 import { BLOG_ARTICLES, AUTHOR_INFO } from '../data/blogData';
-import heroImage from '../assets/manifestation 2.png';
+import heroBg from '../assets/blog-hero-bg.png';
 
 export default function BlogView() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -33,10 +33,22 @@ export default function BlogView() {
   return (
     <div className="bg-white min-h-screen font-sans antialiased text-[#110A24] pt-20">
       {/* 1. HERO BANNER */}
-      <section className="py-20 px-6 md:px-16 bg-gradient-to-br from-[#1d0b45] via-[#280c5f] to-[#3b1580] text-white relative overflow-hidden">
+      <section className="relative py-20 px-6 md:px-16 text-white overflow-hidden bg-[#1d0b45]">
+        {/* Hero Background Image */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img 
+            src={heroBg} 
+            alt="Manifestation Energy Background" 
+            className="w-full h-full object-cover object-right"
+          />
+          {/* Gradient overlays to maintain high contrast for text while highlighting glowing aura on the right */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1d0b45]/95 via-[#1d0b45]/80 to-transparent lg:via-[#1d0b45]/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1d0b45]/60 via-transparent to-[#1d0b45]/40" />
+        </div>
+
         {/* Subtle Decorative Glows */}
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-500/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-500/15 rounded-full blur-3xl pointer-events-none z-0" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl pointer-events-none z-0" />
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           {/* Left Content Column */}
@@ -54,15 +66,6 @@ export default function BlogView() {
               Essential perspectives on goal clarity, emotional awareness, nervous system alignment, and intentional action by Jinal Sanghavi.
             </p>
 
-            {/* Mobile Only: Photo placed right after description */}
-            <div className="block lg:hidden w-72 h-72 sm:w-80 sm:h-80 mx-auto my-4 z-10">
-              <img 
-                src={heroImage} 
-                alt="Jinal Sanghavi - Manifestation & Human Potential Expert" 
-                className="w-full h-full object-contain object-center drop-shadow-2xl"
-              />
-            </div>
-
             <div className="flex flex-wrap gap-4 pt-3 text-xs text-purple-200/90 font-medium">
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 size={16} className="text-emerald-400" />
@@ -77,19 +80,20 @@ export default function BlogView() {
                 <span>Actionable Step-by-Step Frameworks</span>
               </div>
             </div>
+
+            {/* Mobile Only: Author Badge */}
+            <div className="pt-2 block lg:hidden">
+              <div className="inline-flex items-center gap-2 bg-purple-950/80 backdrop-blur-md border border-purple-400/30 text-purple-200 text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full shadow-lg">
+                <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+                Jinal Sanghavi • Author & Expert
+              </div>
+            </div>
           </div>
 
-          {/* Right Portrait Column (Desktop Only) */}
-          <div className="hidden lg:col-span-5 lg:flex flex-col items-center justify-center relative">
-            <div className="w-full h-[460px] flex items-center justify-center z-10">
-              <img 
-                src={heroImage} 
-                alt="Jinal Sanghavi - Manifestation & Human Potential Expert" 
-                className="max-h-full max-w-full w-auto h-auto object-contain object-center drop-shadow-2xl scale-110"
-              />
-            </div>
-            {/* Author Badge placed underneath */}
-            <div className="mt-6 inline-flex items-center gap-2 bg-purple-950/80 border border-purple-400/30 text-purple-200 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg z-10">
+          {/* Right Column (Desktop Only: allows the glowing aura figure from background to shine prominently) */}
+          <div className="hidden lg:col-span-5 lg:flex flex-col items-center justify-end min-h-[380px] pb-4 relative">
+            {/* Author Badge placed gracefully underneath the glowing silhouette area */}
+            <div className="inline-flex items-center gap-2 bg-purple-950/80 backdrop-blur-md border border-purple-400/30 text-purple-200 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-xl">
               <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
               Jinal Sanghavi • Author & Expert
             </div>
