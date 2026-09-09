@@ -216,8 +216,7 @@
 
 
 import { Brain, Heart, GraduationCap, User, Users, Flame, Info, Calendar } from 'lucide-react';
-import React from 'react';
-import Navbar from './Navbar';
+
 
 interface CounsellingProps {
   onViewChange: (viewId: string) => void;
