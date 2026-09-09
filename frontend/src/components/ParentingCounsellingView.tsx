@@ -4,9 +4,10 @@ import {
   Clock, Monitor, Calendar, Shield, MessageCircle, User, Phone, 
   Mail, MapPin, Check, X, ShieldAlert, MessageSquare, VolumeX, Users, 
   BookOpen,  Sliders,  
-  Activity, Smartphone, Frown, Users2, ShieldCheck, Home, Sprout,Lightbulb
+  Activity, Smartphone, Frown, Users2, ShieldCheck, Home, Sprout, Lightbulb
 } from 'lucide-react';
 import Navbar from './Navbar';
+import heroImg from '../assets/Parenting Counselling.png';
 
 
 // interface ParentingCounsellingViewProps {
@@ -101,45 +102,82 @@ export default function ParentingCounsellingView() {
       </div> */}
 
       {/* 2. HERO SECTION */}
-      <section className="py-20 px-6 md:px-16 bg-gradient-to-br from-[#1d0b45] to-[#3b1580] text-white">
-        <div className="max-w-7xl mx-auto space-y-6">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold tracking-tight max-w-3xl leading-tight">
-            Parenting Counselling
-          </h1>
-          <p className="text-lg md:text-xl text-purple-100/90 max-w-2xl font-light">
-            Build Stronger Bonds With Your Child Through Understanding, Connection & Love
-          </p>
-          <div className="flex flex-wrap gap-3 pt-2">
-            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/10 text-xs font-bold uppercase tracking-wider">
-              <Heart size={14} className="text-yellow-400 fill-yellow-400" /> Family-Centered
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/10 text-xs font-bold uppercase tracking-wider">
-              <Shield size={14} className="text-yellow-400 fill-yellow-400" /> Practical Solutions
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/10 text-xs font-bold uppercase tracking-wider">
-              <Award size={14} className="text-yellow-400 fill-yellow-400" /> 17+ Years
-            </span>
-          </div>
-          <div className="flex flex-wrap gap-4 pt-4">
-            <a href="#booking" className="inline-flex items-center gap-2 bg-[#9e47ec] hover:bg-[#8534cc] text-white font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-xl shadow-lg transition-all">
-              <Calendar size={14} /> Book Consultation
-            </a>
-            <a href="#overview" className="inline-flex items-center gap-2 bg-white text-[#110A24] hover:bg-gray-100 font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-xl shadow-lg transition-all">
-              &darr; Discover More
-            </a>
-          </div>
-          <div className="pt-12 grid grid-cols-3 gap-6 border-t border-white/10 max-w-2xl mt-8">
-            <div>
-              <span className="text-3xl md:text-4xl font-black block">1800+</span>
-              <span className="text-[10px] text-purple-200/80 uppercase tracking-widest font-bold">Sessions Done</span>
+      <section className="py-20 px-6 md:px-16 bg-gradient-to-br from-[#1d0b45] to-[#3b1580] text-white relative overflow-hidden">
+        {/* Background ambient lighting blurs */}
+        <div className="absolute right-[-10%] top-[10%] w-[600px] h-[600px] bg-purple-500/20 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute left-[-10%] bottom-[10%] w-[500px] h-[500px] bg-pink-500/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+          {/* Left Content Column */}
+          <div className="lg:col-span-7 space-y-6">
+            <h1 className="text-4xl md:text-6xl font-serif font-bold tracking-tight max-w-3xl leading-tight">
+              Parenting Counselling
+            </h1>
+            <p className="text-lg md:text-xl text-purple-100/90 max-w-2xl font-light">
+              Build Stronger Bonds With Your Child Through Understanding, Connection & Love
+            </p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/10 text-xs font-bold uppercase tracking-wider">
+                <Heart size={14} className="text-yellow-400 fill-yellow-400" /> Family-Centered
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/10 text-xs font-bold uppercase tracking-wider">
+                <Shield size={14} className="text-yellow-400 fill-yellow-400" /> Practical Solutions
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/10 text-xs font-bold uppercase tracking-wider">
+                <Award size={14} className="text-yellow-400 fill-yellow-400" /> 17+ Years
+              </span>
             </div>
-            <div>
-              <span className="text-3xl md:text-4xl font-black block">500+</span>
-              <span className="text-[10px] text-purple-200/80 uppercase tracking-widest font-bold">Families Helped</span>
+
+            {/* Mobile Only: Photo placed right after badges */}
+            <div className="block lg:hidden w-full max-w-sm mx-auto my-6 z-10">
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-purple-950/40">
+                <img 
+                  src={heroImg} 
+                  alt="Parenting Counselling - Jinal Sanghavi" 
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
             </div>
-            <div>
-              <span className="text-3xl md:text-4xl font-black block">98%</span>
-              <span className="text-[10px] text-purple-200/80 uppercase tracking-widest font-bold">Satisfaction</span>
+
+            <div className="flex flex-wrap gap-4 pt-4">
+              <a href="#booking" className="inline-flex items-center gap-2 bg-[#9e47ec] hover:bg-[#8534cc] text-white font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-xl shadow-lg transition-all">
+                <Calendar size={14} /> Book Consultation
+              </a>
+              <a href="#overview" className="inline-flex items-center gap-2 bg-white text-[#110A24] hover:bg-gray-100 font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-xl shadow-lg transition-all">
+                &darr; Discover More
+              </a>
+            </div>
+
+            <div className="pt-12 grid grid-cols-3 gap-6 border-t border-white/10 max-w-2xl mt-8">
+              <div>
+                <span className="text-3xl md:text-4xl font-black block">1800+</span>
+                <span className="text-[10px] text-purple-200/80 uppercase tracking-widest font-bold">Sessions Done</span>
+              </div>
+              <div>
+                <span className="text-3xl md:text-4xl font-black block">500+</span>
+                <span className="text-[10px] text-purple-200/80 uppercase tracking-widest font-bold">Families Helped</span>
+              </div>
+              <div>
+                <span className="text-3xl md:text-4xl font-black block">98%</span>
+                <span className="text-[10px] text-purple-200/80 uppercase tracking-widest font-bold">Satisfaction</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Hero Image Column (Desktop Only) */}
+          <div className="hidden lg:col-span-5 lg:flex flex-col items-center justify-center relative">
+            <div className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 bg-purple-950/40 backdrop-blur-sm group z-10">
+              <img 
+                src={heroImg} 
+                alt="Parenting Counselling - Jinal Sanghavi" 
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1d0b45]/60 via-transparent to-transparent pointer-events-none" />
+            </div>
+            {/* Trust Badge placed underneath */}
+            <div className="mt-5 inline-flex items-center gap-2 bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg z-10">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              Family-Centered Guidance
             </div>
           </div>
         </div>

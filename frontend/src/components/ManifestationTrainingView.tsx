@@ -1,7 +1,7 @@
 import  { useState,useEffect } from 'react';
 import { Star, Sparkles, Award, Rocket, Target, Eye, ShieldAlert, Heart, TrendingUp, Compass, Clock, Monitor, Calendar, Shield, MessageCircle, Flame, User, Phone, Mail, MapPin, Check, X, MessageSquare, Send } from 'lucide-react';
+import heroImage from '../assets/Manifestation Training.png';
 import Navbar from './Navbar';
-import heroImage from '../assets/Jinal Hero Banner Image 2.png';
 
 
 // export default function ManifestationTrainingView() {
@@ -130,12 +130,14 @@ export default function ManifestationTrainingView() {
             </div>
 
             {/* Mobile Only: Photo placed right after badges */}
-            <div className="block lg:hidden w-72 h-72 sm:w-80 sm:h-80 mx-auto my-4 z-10">
-              <img 
-                src={heroImage} 
-                alt="Jinal Sanghavi - Manifestation Expert" 
-                className="w-full h-full object-contain object-center drop-shadow-2xl"
-              />
+            <div className="block lg:hidden w-full max-w-sm mx-auto my-6 z-10">
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-purple-950/40">
+                <img 
+                  src={heroImage} 
+                  alt="Manifestation Training - Jinal Sanghavi" 
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
             </div>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -165,15 +167,16 @@ export default function ManifestationTrainingView() {
 
           {/* Right Portrait Column (Desktop Only) */}
           <div className="hidden lg:col-span-5 lg:flex flex-col items-center justify-center relative">
-            <div className="w-full h-[480px] flex items-center justify-center z-10">
+            <div className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 bg-purple-950/40 backdrop-blur-sm group z-10">
               <img 
                 src={heroImage} 
-                alt="Jinal Sanghavi - Manifestation Expert" 
-                className="max-h-full max-w-full w-auto h-auto object-contain object-center drop-shadow-2xl scale-110"
+                alt="Manifestation Training - Jinal Sanghavi" 
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1d0b45]/60 via-transparent to-transparent pointer-events-none" />
             </div>
             {/* Certified Badge placed underneath with clean margin */}
-            <div className="mt-6 inline-flex items-center gap-2 bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg z-10">
+            <div className="mt-5 inline-flex items-center gap-2 bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg z-10">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               Certified Manifestation Expert
             </div>

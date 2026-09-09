@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, BookOpen, ArrowRight, Clock, Calendar, CheckCircle2, HeartHandshake, Compass } from 'lucide-react';
 import { BLOG_ARTICLES, AUTHOR_INFO } from '../data/blogData';
-import heroImage from '../assets/Jinal Hero Banner Image 2.png';
+import heroImage from '../assets/manifestation 2.png';
 
 export default function BlogView() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
