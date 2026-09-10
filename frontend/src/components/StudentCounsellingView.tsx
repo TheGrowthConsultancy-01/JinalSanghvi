@@ -173,11 +173,11 @@ export default function StudentCounsellingView() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1d0b45]/60 via-transparent to-transparent pointer-events-none" />
             </div>
-            {/* Trust Badge placed underneath */}
+            {/* Trust Badge placed underneath
             <div className="mt-5 inline-flex items-center gap-2 bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg z-10">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               Academic & Confidence Mentor
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
