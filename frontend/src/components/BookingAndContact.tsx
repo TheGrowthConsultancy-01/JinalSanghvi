@@ -646,7 +646,9 @@ export default function BookingAndContact() {
   };
 
   return (
-    <section id="book-session" className="py-24 px-4 md:px-8 bg-gradient-to-b from-purple-50/20 to-purple-100/40">
+    <section id="book-session" className="py-24 px-4 md:px-8 bg-gradient-to-b from-purple-50/20 to-purple-100/40 relative">
+      <div id="contact" className="absolute -top-16 left-0" />
+      <div id="booking" className="absolute -top-16 left-0" />
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}

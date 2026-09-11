@@ -225,7 +225,8 @@
 // }
 
 
-import { Lightbulb, Zap, Heart, CheckCircle2, Crown, Sparkles, MessageSquare } from 'lucide-react';
+import { Lightbulb, Zap, Heart, CheckCircle2, Crown, Sparkles, MessageSquare, Info } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function ManifestationTraining() {
   const points = [
@@ -317,16 +318,14 @@ export default function ManifestationTraining() {
                 ))}
               </ul>
               <div className="flex gap-4 mt-8 pt-6 border-t border-gray-100/80">
+                <Link 
+                  to="/manifestation-training"
+                  className="flex-1 bg-primary hover:bg-primary-dark text-white text-xs font-bold uppercase tracking-wider py-4 rounded-xl text-center flex items-center justify-center gap-1.5 shadow-lg shadow-purple-600/10 transition-colors cursor-pointer"
+                >
+                  <Info size={14} /> Know More
+                </Link>
                 <a 
                   href="#book-session"
-                  className="flex-1 bg-primary hover:bg-primary-dark text-white text-xs font-bold uppercase tracking-wider py-4 rounded-xl text-center shadow-lg shadow-purple-600/10 transition-colors cursor-pointer"
-                >
-                  🚀 Start Training
-                </a>
-                <a 
-                  href="https://wa.me/919924999666"
-                  target="_blank" 
-                  rel="noopener noreferrer"
                   className="flex-1 bg-white border border-purple-200 text-primary hover:bg-purple-50 text-xs font-bold uppercase tracking-wider py-4 rounded-xl text-center flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
                 >
                   <MessageSquare size={14} /> Ask Jinal

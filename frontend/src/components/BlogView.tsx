@@ -93,10 +93,10 @@ export default function BlogView() {
           {/* Right Column (Desktop Only: allows the glowing aura figure from background to shine prominently) */}
           <div className="hidden lg:col-span-5 lg:flex flex-col items-center justify-end min-h-[380px] pb-4 relative">
             {/* Author Badge placed gracefully underneath the glowing silhouette area */}
-            <div className="inline-flex items-center gap-2 bg-purple-950/80 backdrop-blur-md border border-purple-400/30 text-purple-200 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-xl">
+            {/* <div className="inline-flex items-center gap-2 bg-purple-950/80 backdrop-blur-md border border-purple-400/30 text-purple-200 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-xl">
               <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
               Jinal Sanghavi • Author & Expert
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -258,7 +258,7 @@ export default function BlogView() {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {remainingArticles.map((article) => (
                 <article
                   key={article.id}

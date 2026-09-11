@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import Navbar from './Navbar';
 import heroImg from '../assets/Personal Counselling.png';
+import heroBg from '../assets/personal-hero-bg.jpg';
 
 
 // interface PersonalCounsellingViewProps {
@@ -83,32 +84,29 @@ export default function PersonalCounsellingView() {
   };
 
   return (
-    <div className="bg-white min-h-screen font-sans antialiased text-[#110A24]">
-      
-      {/* 1. Global Navbar */}
-      <div className="bg-[#1d0b45] text-white">
-        <Navbar />
-      </div>
-
-      {/* Back Header Bar */}
-      {/* <div className="bg-[#f2ebfd] py-4 px-6 border-b border-purple-100">
-        <div className="max-w-7xl mx-auto">
-          <button 
-            onClick={onBack}
-            className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary-dark transition-colors cursor-pointer"
-          >
-            &larr; Back to Specializations
-          </button>
-        </div>
-      </div> */}
+    <div className="bg-white min-h-screen font-sans antialiased text-[#110A24] pt-16">
+      <Navbar />
 
       {/* 2. HERO SECTION */}
-      <section className="py-20 px-6 md:px-16 bg-gradient-to-br from-[#1d0b45] to-[#3b1580] text-white relative overflow-hidden">
-        {/* Background ambient lighting blurs */}
-        <div className="absolute right-[-10%] top-[10%] w-[600px] h-[600px] bg-purple-500/20 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute left-[-10%] bottom-[10%] w-[500px] h-[500px] bg-pink-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <section className="relative min-h-[540px] lg:min-h-[600px] xl:min-h-[640px] flex items-center py-16 lg:py-20 px-6 md:px-16 text-white overflow-hidden bg-[#250f5a]">
+        {/* Hero Background Image */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <img 
+            src={heroBg} 
+            alt="Personal Counselling Background" 
+            className="w-full h-full object-cover object-[right_top]"
+          />  
+          {/* Mobile dark overlay for crisp text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#250f5a]/90 via-[#250f5a]/75 to-[#250f5a]/90 lg:hidden" />
+          {/* Desktop gradient overlay for text contrast on left while keeping right visual clear */}
+          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#250f5a] via-[#250f5a]/80 to-transparent max-w-3xl" />
+        </div>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+        {/* Background ambient lighting blurs */}
+        <div className="absolute right-[-10%] top-[10%] w-[600px] h-[600px] bg-purple-500/20 rounded-full blur-[140px] pointer-events-none z-0" />
+        <div className="absolute left-[-10%] bottom-[10%] w-[500px] h-[500px] bg-pink-500/10 rounded-full blur-[120px] pointer-events-none z-0" />
+
+        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           {/* Left Content Column */}
           <div className="lg:col-span-7 space-y-6">
             <h1 className="text-4xl md:text-6xl font-serif font-bold tracking-tight max-w-3xl leading-tight">
@@ -166,7 +164,7 @@ export default function PersonalCounsellingView() {
           </div>
 
           {/* Right Hero Image Column (Desktop Only) */}
-          <div className="hidden lg:col-span-5 lg:flex flex-col items-center justify-center relative">
+          {/* <div className="hidden lg:col-span-5 lg:flex flex-col items-center justify-center relative">
             <div className="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 bg-purple-950/40 backdrop-blur-sm group z-10">
               <img 
                 src={heroImg} 
@@ -175,12 +173,14 @@ export default function PersonalCounsellingView() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1d0b45]/60 via-transparent to-transparent pointer-events-none" />
             </div>
-            {/* Trust Badge placed underneath
+            Trust Badge placed underneath
             <div className="mt-5 inline-flex items-center gap-2 bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded-full shadow-lg z-10">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               1-on-1 Confidential Care
-            </div> */}
-          </div>
+            </div>
+          </div> */}
+          {/* Right Column: Open space showcasing the background illustration */}
+          <div className="hidden lg:col-span-5 lg:flex flex-col items-center justify-center min-h-[460px] relative pointer-events-none" />
         </div>
       </section>
 
