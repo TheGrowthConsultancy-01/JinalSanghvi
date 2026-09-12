@@ -7,7 +7,7 @@ export default function ManifestationSinglePage() {
   }, []);
 
   return (
-    <div className="bg-[#eddcff] min-h-screen font-sans antialiased text-[#110A24] pt-16 md:pt-20">
+    <div className="bg-[#eddcff] min-h-screen font-sans antialiased text-[#110A24] pt-16 md:pt-20 w-full max-w-full overflow-x-hidden">
       <main>
         <ManifestationTraining isStandalonePage={true} />
       </main>

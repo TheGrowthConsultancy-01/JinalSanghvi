@@ -33,7 +33,7 @@ export default function BlogView() {
   return (
     <div className="bg-white min-h-screen font-sans antialiased text-[#110A24] pt-20">
       {/* 1. HERO BANNER */}
-      <section className="relative py-20 px-6 md:px-16 text-white overflow-hidden bg-[#1d0b45]">
+      <section className="relative py-20 px-6 md:px-16  text-white overflow-hidden bg-[#1d0b45]">
         {/* Hero Background Image */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <img 

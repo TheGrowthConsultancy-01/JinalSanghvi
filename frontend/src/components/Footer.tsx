@@ -56,7 +56,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0D111E] text-gray-300 font-sans text-sm pt-20 pb-8 px-6 md:px-16 border-t border-gray-800/20">
+    <footer className="bg-[#0D111E] text-gray-300 font-sans text-sm pt-20 pb-8 px-4 sm:px-6 md:px-16 border-t border-gray-800/20 overflow-hidden w-full max-w-full">
       <div className="max-w-7xl mx-auto">
         
         {/* 4-Column Structural Main Grid */}
