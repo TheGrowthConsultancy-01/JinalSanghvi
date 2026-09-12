@@ -6,7 +6,7 @@ import {
   AlertTriangle, FileText, 
   GraduationCap, BookOpen, Brain, Trophy, Zap, Smile, } from 'lucide-react';
 import Navbar from './Navbar';
-import heroBg from '../assets/student-hero-bg.jpg';
+import heroBg from '../assets/student_coun.png';
 
 
 // interface StudentCounsellingViewProps {
@@ -85,7 +85,7 @@ export default function StudentCounsellingView() {
       <Navbar />
 
       {/* 2. HERO SECTION */}
-      <section className="relative min-h-[540px] lg:min-h-[600px] xl:min-h-[640px] flex items-center py-16 lg:py-20 px-6 md:px-16 text-white overflow-hidden bg-[#2a0c66]">
+      <section className=" min-h-[540px] lg:min-h-[600px] xl:min-h-[640px] flex items-center py-16 lg:py-20 px-6 md:px-16 text-white overflow-hidden bg-[#2a0c66]">
         {/* Hero Background Image */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img 

@@ -401,6 +401,7 @@ import BookingAndContact from './components/BookingAndContact';
 import Footer from './components/Footer';
 
 // Views Import
+import ManifestationSinglePage from './components/ManifestationSinglePage';
 import ManifestationTrainingView from './components/ManifestationTrainingView';
 import RelationshipCounsellingView from './components/RelationshipCounsellingView';
 import StudentCounsellingView from './components/StudentCounsellingView';
@@ -463,7 +464,12 @@ export default function App() {
           </main>
         } />
 
-        {/* 1. Manifestation Training View */}
+        {/* Dedicated Single Page for Featured Service: Manifestation Training */}
+        <Route path="/manifestation" element={
+          <ManifestationSinglePage />
+        } />
+
+        {/* 1. Manifestation Training View (First counselling specialization service) */}
         <Route path="/manifestation-training" element={
           <ManifestationTrainingView />
         } />

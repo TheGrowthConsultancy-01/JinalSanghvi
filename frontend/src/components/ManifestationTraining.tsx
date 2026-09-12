@@ -228,7 +228,11 @@
 import { Lightbulb, Zap, Heart, CheckCircle2, Crown, Sparkles, MessageSquare, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-export default function ManifestationTraining() {
+interface ManifestationTrainingProps {
+  isStandalonePage?: boolean;
+}
+
+export default function ManifestationTraining({ isStandalonePage = false }: ManifestationTrainingProps) {
   const points = [
     { icon: <Lightbulb size={20} fill="currentColor" />, title: "Reprogram Your Mindset", desc: "Release limiting beliefs that block success and replace them with empowering thoughts." },
     { icon: <Zap size={20} fill="currentColor" />, title: "Align Your Energy", desc: "Sync your vibration with your goals through proven energy alignment techniques." },
@@ -237,8 +241,11 @@ export default function ManifestationTraining() {
   ];
 
   return (
-    <section id="manifestation" className="bg-[#eddcff] py-24 px-6 md:px-16 relative">
-      <div className="max-w-7xl mx-auto">
+    <section 
+      id="manifestation" 
+      className={`bg-[#eddcff] ${isStandalonePage ? 'py-10 md:py-16 min-h-[calc(100vh-80px)] flex items-center' : 'py-24'} px-6 md:px-16 relative`}
+    >
+      <div className="max-w-7xl mx-auto w-full">
         
         {/* Section Header */}
         <div className="text-center mb-16 space-y-3">
@@ -325,7 +332,7 @@ export default function ManifestationTraining() {
                   <Info size={14} /> Know More
                 </Link>
                 <a 
-                  href="#book-session"
+                  href="/#book-session"
                   className="flex-1 bg-white border border-purple-200 text-primary hover:bg-purple-50 text-xs font-bold uppercase tracking-wider py-4 rounded-xl text-center flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
                 >
                   <MessageSquare size={14} /> Ask Jinal

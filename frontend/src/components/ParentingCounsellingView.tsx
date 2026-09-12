@@ -86,7 +86,7 @@ export default function ParentingCounsellingView() {
       <Navbar />
 
       {/* 2. HERO SECTION */}
-      <section className="relative min-h-[540px] lg:min-h-[600px] xl:min-h-[640px] flex items-center py-16 lg:py-20 px-6 md:px-16 text-white overflow-hidden bg-[#290e5d]">
+      <section className=" min-h-[540px] lg:min-h-[600px] xl:min-h-[640px] flex items-center py-16 lg:py-20 px-6 md:px-16 text-white overflow-hidden bg-[#290e5d]">
         {/* Hero Background Image */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img 

@@ -230,7 +230,7 @@ export default function Navbar() {
 
   const navItems = [
     { label: 'Home', href: isHomePage ? '#home' : '/' },
-    { label: 'Manifestation', href: isHomePage ? '#manifestation' : '/#manifestation' },
+    { label: 'Manifestation', href: '/manifestation' },
     { label: 'About', href: isHomePage ? '#about' : '/#about' },
     { label: 'Services', href: isHomePage ? '#counselling' : '/#counselling' },
     { label: 'Gallery', href: isHomePage ? '#gallery' : '/#gallery' },
@@ -273,9 +273,14 @@ export default function Navbar() {
             {navItems.map((item) => {
               const isBlogItem = item.label === 'Blog';
               const isBlogActive = isBlogItem && location.pathname.startsWith('/blog');
+
+              const isManifestationItem = item.label === 'Manifestation';
+              const isManifestationActive = isManifestationItem && location.pathname === '/manifestation';
+
+              const isItemActive = isBlogActive || isManifestationActive;
               
               const linkClasses = `text-[14px] font-semibold tracking-wide transition-colors duration-200 relative group py-1.5 ${
-                isBlogActive
+                isItemActive
                   ? 'text-[#9e47ec] font-bold'
                   : showScrolledStyle 
                     ? 'text-gray-800 hover:text-primary' 
@@ -290,7 +295,7 @@ export default function Navbar() {
                     className={linkClasses}
                   >
                     {item.label}
-                    <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${isBlogActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                    <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${isItemActive ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                   </Link>
                 );
               }
@@ -334,6 +339,11 @@ export default function Navbar() {
             const isBlogItem = item.label === 'Blog';
             const isBlogActive = isBlogItem && location.pathname.startsWith('/blog');
 
+            const isManifestationItem = item.label === 'Manifestation';
+            const isManifestationActive = isManifestationItem && location.pathname === '/manifestation';
+
+            const isItemActive = isBlogActive || isManifestationActive;
+
             if (item.href.startsWith('/') && !item.href.includes('#')) {
               return (
                 <Link
@@ -341,7 +351,7 @@ export default function Navbar() {
                   to={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`text-xl font-serif font-bold transition-colors ${
-                    isBlogActive ? 'text-primary underline' : 'text-white hover:text-primary'
+                    isItemActive ? 'text-primary underline' : 'text-white hover:text-primary'
                   }`}
                 >
                   {item.label}

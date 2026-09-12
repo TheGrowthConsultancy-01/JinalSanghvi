@@ -8,8 +8,7 @@ import {
   Battery, Flower2, Lightbulb
 } from 'lucide-react';
 import Navbar from './Navbar';
-import heroImg from '../assets/Personal Counselling.png';
-import heroBg from '../assets/personal-hero-bg.jpg';
+import heroBg from '../assets/persnal_coun.png';
 
 
 // interface PersonalCounsellingViewProps {
@@ -88,7 +87,7 @@ export default function PersonalCounsellingView() {
       <Navbar />
 
       {/* 2. HERO SECTION */}
-      <section className="relative min-h-[540px] lg:min-h-[600px] xl:min-h-[640px] flex items-center py-16 lg:py-20 px-6 md:px-16 text-white overflow-hidden bg-[#250f5a]">
+      <section className=" min-h-[540px] lg:min-h-[600px] xl:min-h-[640px] flex items-center py-16 lg:py-20 px-6 md:px-16 text-white overflow-hidden bg-[#250f5a]">
         {/* Hero Background Image */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img 
@@ -131,7 +130,7 @@ export default function PersonalCounsellingView() {
             <div className="block lg:hidden w-full max-w-sm mx-auto my-6 z-10">
               <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl border-2 border-white/20 bg-purple-950/40">
                 <img 
-                  src={heroImg} 
+                  src={heroBg} 
                   alt="Personal Counselling - Jinal Sanghavi" 
                   className="w-full h-full object-cover object-center"
                 />
